@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.gdg.withtrip.ui.trip.TripCard" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="200dp"
+        android:layout_height="260dp"
+        app:cardCornerRadius="20dp"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/trip_card_1_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:src="@tools:sample/backgrounds/scenic"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/trip_card_1_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@{vm.title}"
+                tools:text="@tools:sample/cities"
+                app:layout_constraintStart_toStartOf="@id/trip_card_1_subtitle"
+                app:layout_constraintBottom_toTopOf="@id/trip_card_1_subtitle"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/trip_card_1_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:text="@{vm.subtitle}"
+                tools:text="@tools:sample/lorem"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/ic_baseline_favorite_16"
+                android:background="@drawable/bg_favorite"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout >
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

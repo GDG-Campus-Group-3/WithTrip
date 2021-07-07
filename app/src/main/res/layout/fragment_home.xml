@@ -7,6 +7,30 @@
     tools:context=".ui.home.HomeFragment">
 
     <TextView
+        android:id="@+id/popular_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:textSize="32sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:text="@string/popular"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/popular_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/popular_title"
+        app:layout_constraintStart_toStartOf="@id/popular_title"
+        tools:listitem="@layout/trip_card_1"/>
+
+    <TextView
         android:id="@+id/text_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

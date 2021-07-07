@@ -22,9 +22,14 @@
         android:name="com.gdg.withtrip.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
     <fragment
         android:id="@+id/tripDetailFragment"
         android:name="com.gdg.withtrip.ui.detail.TripDetailFragment"
         android:label="TripDetailFragment"
-        tools:layout="@layout/fragment_trip_detail"/>
+        tools:layout="@layout/fragment_trip_detail">
+        <argument
+            android:name="tripDetail"
+            app:argType="com.gdg.withtrip.ui.detail.TripDetail"/>
+    </fragment>
 </navigation>

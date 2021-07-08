@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@+id/main_navigation">
+
+    <fragment
+        android:id="@+id/tripDetailFragment"
+        android:name="com.gdg.withtrip.ui.detail.TripDetailFragment"
+        android:label="TripDetailFragment"
+        tools:layout="@layout/fragment_trip_detail">
+
+        <argument
+            android:name="tripDetail"
+            app:argType="com.gdg.withtrip.ui.detail.TripDetail"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.gdg.withtrip.ui.sign.SignInFragment"
+        android:label="SignInFragment"
+        tools:layout="@layout/fragment_sign_in">
+    </fragment>
+
+    <fragment
+        android:id="@+id/likeFragment"
+        android:name="com.gdg.withtrip.ui.like.LikeFragment"
+        android:label="LikeFragment"
+        tools:layout="@layout/fragment_like">
+    </fragment>
+
+    <include
+        android:id="@+id/main_navigation"
+        app:graph="@navigation/main_navigation">
+
+        <fragment
+            android:id="@+id/mainFragment"
+            android:name="com.gdg.withtrip.ui.MainFragment"
+            android:label="MainFragment"
+            tools:layout="@layout/fragment_main">
+
+            <action
+                android:id="@+id/navigate_to_trip_detail"
+                app:destination="@id/tripDetailFragment" />
+
+            <action
+                android:id="@+id/action_mainFragment_to_likeFragment"
+                app:destination="@id/likeFragment" />
+
+            <action
+                android:id="@+id/action_mainFragment_to_signInFragment"
+                app:destination="@id/signInFragment" />
+        </fragment>
+    </include>
+</navigation>

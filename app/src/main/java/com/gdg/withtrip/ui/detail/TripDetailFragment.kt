@@ -2,6 +2,7 @@ package com.gdg.withtrip.ui.detail
 
 import android.os.Bundle
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.gdg.withtrip.R
 import com.gdg.withtrip.databinding.FragmentTripDetailBinding
 import com.solar.universe.binding.UniverseViewFragment
@@ -12,12 +13,13 @@ class TripDetailFragment : UniverseViewFragment<FragmentTripDetailBinding>(
     FragmentTripDetailBinding::bind
 ) {
 
-    private val tripDetail: TripDetail? by lazy { arguments?.getParcelable(KEY_TRIP_DETAIL) }
+    //private val tripDetail: TripDetail? by lazy { arguments?.getParcelable(KEY_TRIP_DETAIL) }
+    private val tripDetail: TripDetailFragmentArgs by navArgs()
 
     private val tripDetailViewModel: TripDetailViewModel by viewModels()
 
     override fun onViewCreated(bind: FragmentTripDetailBinding, savedInstanceState: Bundle?) {
-        tripDetail?.let { render(it) }
+        render(tripDetail.tripDetail)
 
         tripDetailViewModel.tripDetailLiveData.observe(viewLifecycleOwner, {
 

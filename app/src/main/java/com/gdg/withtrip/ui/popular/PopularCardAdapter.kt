@@ -6,12 +6,14 @@ import com.gdg.withtrip.R
 import com.gdg.withtrip.databinding.TripCard1Binding
 import com.gdg.withtrip.ui.base.AbstractAdapter
 
-class PopularCardAdapter : AbstractAdapter<PopularCard>() {
+class PopularCardAdapter(private val onClick: (model: PopularCard) -> Unit) : AbstractAdapter<PopularCard>() {
 
     override fun getViewHolder(viewType: Int, view: View): RecyclerView.ViewHolder {
         return PopularCardViewHolder(
             TripCard1Binding.bind(view)
-        )
+        ) { onClickPosition ->
+            onClick(array[onClickPosition])
+        }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

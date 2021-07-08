@@ -32,4 +32,9 @@
             android:name="tripDetail"
             app:argType="com.gdg.withtrip.ui.detail.TripDetail"/>
     </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.gdg.withtrip.ui.sign.SignInFragment"
+        android:label="SignInFragment"
+        tools:layout="@layout/fragment_sign_in"/>
 </navigation>

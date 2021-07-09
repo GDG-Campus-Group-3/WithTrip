@@ -15,7 +15,7 @@ class LikeCardAdapter : AbstractAdapter<PopularCard>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (holder is PopularCardViewHolder) {
+        if (holder is LikeCardViewHolder) {
             holder.bind(array[position])
         }
     }

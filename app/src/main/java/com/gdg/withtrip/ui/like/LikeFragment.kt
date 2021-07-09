@@ -6,7 +6,9 @@ import com.gdg.withtrip.R
 import com.gdg.withtrip.databinding.FragmentLikeBinding
 import com.gdg.withtrip.ui.trip.TripViewModel
 import com.solar.universe.binding.UniverseViewFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LikeFragment : UniverseViewFragment<FragmentLikeBinding>(R.layout.fragment_like, FragmentLikeBinding::bind) {
 
     private val tripViewModel: TripViewModel by viewModels()
@@ -17,5 +19,7 @@ class LikeFragment : UniverseViewFragment<FragmentLikeBinding>(R.layout.fragment
                 submit(list)
             }
         })
+
+        tripViewModel.getLikeTripCardList()
     }
 }

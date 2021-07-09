@@ -13,7 +13,9 @@ import com.gdg.withtrip.ui.popular.PopularCardAdapter
 import com.gdg.withtrip.ui.popular.PopularCardEventListener
 import com.gdg.withtrip.ui.trip.TripViewModel
 import com.solar.universe.binding.UniverseViewFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment :
     UniverseViewFragment<FragmentHomeBinding>(R.layout.fragment_home, FragmentHomeBinding::bind),
     PopularCardEventListener {

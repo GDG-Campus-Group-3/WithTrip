@@ -23,7 +23,7 @@ class TripViewModel @Inject constructor(
         runCatching {
             tripRepository.getLikeTripCardList()
         }.onSuccess {
-
+            _likeTripCardListLiveData.postValue(it)
         }.onFailure {
 
         }

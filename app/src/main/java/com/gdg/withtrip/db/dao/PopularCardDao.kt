@@ -12,5 +12,5 @@ interface PopularCardDao {
     suspend fun delete(entity: PopularCard)
 
     @Query("SELECT * FROM popular_card")
-    suspend fun getPopularCardList(page: Int): List<PopularCard>
+    suspend fun getPopularCardList(): List<PopularCard>
 }

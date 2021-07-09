@@ -12,4 +12,8 @@ class TripRepositoryImpl @Inject constructor(
     override suspend fun insertPopularTrip(popularCard: PopularCard) {
         popularCardDao.insert(popularCard)
     }
+
+    override suspend fun getLikeTripCardList(): List<PopularCard> {
+        return popularCardDao.getPopularCardList()
+    }
 }

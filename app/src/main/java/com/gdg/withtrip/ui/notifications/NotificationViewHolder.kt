@@ -9,15 +9,9 @@ class NotificationViewHolder(
 ) : RecyclerView.ViewHolder(bind.root) {
 
     fun bind(model: Notification) {
-        bind.notificationThumbnail.loadUrl(model.thumbnail)
-        bind.notificationTitle.text = model.title
-        bind.notificationSubtitle.text = model.subtitle
-    }
-
-    private inline fun exactPosition(action: (Int) -> Unit) {
-        val position = adapterPosition
-        if (position != RecyclerView.NO_POSITION) {
-            action(position)
-        }
+        bind.tripCard1Image.loadUrl(model.thumbnail)
+        bind.tripCard1Title.text = model.title
+        bind.tvDate.text = model.date
+        bind.tvMsg.text = model.msg
     }
 }

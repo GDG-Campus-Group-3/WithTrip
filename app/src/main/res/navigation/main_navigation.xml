@@ -69,6 +69,6 @@
         <action
             android:id="@+id/action_myApplyFeedFragment_to_tripDetailFragment2"
             app:destination="@id/tripDetailFragment2" />
-    </fragment>
+    </fragment><action android:id="@+id/action_global_navigation_notifications" app:destination="@id/navigation_notifications"/>
 
 </navigation>

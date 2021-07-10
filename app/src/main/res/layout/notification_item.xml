@@ -1,44 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:paddingStart="24dp"
-    android:paddingEnd="24dp"
-    android:paddingTop="12dp"
-    android:paddingBottom="12dp">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
 
-    <ImageView
-        android:id="@+id/notification_thumbnail"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        app:layout_constraintTop_toTopOf="parent"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/trip_card_1_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginVertical="18dp"
+        android:layout_marginStart="10dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        tools:src="@tools:sample/avatars"/>
-
-    <TextView
-        android:id="@+id/notification_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:textSize="14sp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/notification_thumbnail"
-        app:layout_constraintBottom_toTopOf="@id/notification_subtitle"
-        tools:text="@tools:sample/full_names"/>
+        tools:src="@tools:sample/backgrounds/scenic" />
 
-    <TextView
-        android:id="@+id/notification_subtitle"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/trip_card_1_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@id/notification_title"
-        app:layout_constraintTop_toBottomOf="@id/notification_title"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
+        android:textColor="#4F4F4F"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/trip_card_1_image"
+        app:layout_constraintTop_toTopOf="@+id/trip_card_1_image"
+        tools:text="@tools:sample/cities" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:textColor="#4F4F4F"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/trip_card_1_title"
+        app:layout_constraintTop_toBottomOf="@+id/trip_card_1_title"
+        tools:text="@tools:sample/cities" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:textColor="#4F4F4F"
+        android:textStyle="bold"
+        android:layout_marginEnd="10dp"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_msg"
+        app:layout_constraintStart_toStartOf="@+id/tv_msg"
+        tools:text="@tools:sample/cities" />
+
+    <View
+        android:layout_width="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="#4F4F4F"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:text="@tools:sample/full_names"/>
+        android:layout_height="1dp"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <!--    <?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout-->
+<!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--xmlns:tools="http://schemas.android.com/tools"-->
+<!--android:paddingStart="24dp"-->
+<!--android:paddingEnd="24dp"-->
+<!--android:paddingTop="12dp"-->
+<!--android:paddingBottom="12dp">-->
+
+<!--<ImageView-->
+<!--    android:id="@+id/notification_thumbnail"-->
+<!--    android:layout_width="72dp"-->
+<!--    android:layout_height="72dp"-->
+<!--    app:layout_constraintTop_toTopOf="parent"-->
+<!--    app:layout_constraintStart_toStartOf="parent"-->
+<!--    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--    tools:src="@tools:sample/avatars"/>-->
+
+<!--<TextView-->
+<!--    android:id="@+id/notification_title"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_marginStart="24dp"-->
+<!--    android:textSize="14sp"-->
+<!--    app:layout_constraintTop_toTopOf="parent"-->
+<!--    app:layout_constraintStart_toEndOf="@id/notification_thumbnail"-->
+<!--    app:layout_constraintBottom_toTopOf="@id/notification_subtitle"-->
+<!--    tools:text="@tools:sample/full_names"/>-->
+
+<!--<TextView-->
+<!--    android:id="@+id/notification_subtitle"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:textSize="12sp"-->
+<!--    app:layout_constraintStart_toStartOf="@id/notification_title"-->
+<!--    app:layout_constraintTop_toBottomOf="@id/notification_title"-->
+<!--    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--    tools:text="@tools:sample/full_names"/>-->
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->

@@ -66,7 +66,8 @@ object MockData {
         id = id,
         thumbnail = randomCityImage(),
         title = randomCityName(),
-        subtitle = randomCityName()
+        msg = randomCityName(),
+        date = "2021.02.20 10:10:00"
     )
 
     val mockCities = listOf(

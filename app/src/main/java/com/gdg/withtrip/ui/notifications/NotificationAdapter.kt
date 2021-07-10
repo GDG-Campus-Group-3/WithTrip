@@ -1,23 +1,22 @@
-package com.gdg.withtrip.ui.like
+package com.gdg.withtrip.ui.notifications
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.gdg.withtrip.R
-import com.gdg.withtrip.databinding.TripCard2Binding
+import com.gdg.withtrip.databinding.NotificationItemBinding
 import com.gdg.withtrip.ui.base.AbstractAdapter
-import com.gdg.withtrip.ui.popular.PopularCard
 
-class LikeCardAdapter : AbstractAdapter<PopularCard>() {
+class NotificationAdapter  : AbstractAdapter<Notification>() {
 
     override fun getViewHolder(viewType: Int, view: View): RecyclerView.ViewHolder {
-        return LikeCardViewHolder(TripCard2Binding.bind(view))
+        return NotificationViewHolder(NotificationItemBinding.bind(view))
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (holder is LikeCardViewHolder) {
+        if (holder is NotificationViewHolder) {
             holder.bind(array[position])
         }
     }
 
-    override fun getItemViewType(position: Int): Int = R.layout.trip_card_2
+    override fun getItemViewType(position: Int): Int = R.layout.notification_item
 }

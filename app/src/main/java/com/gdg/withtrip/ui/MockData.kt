@@ -1,6 +1,7 @@
 package com.gdg.withtrip.ui
 
 import com.gdg.withtrip.ui.detail.TripDetail
+import com.gdg.withtrip.ui.notifications.Notification
 import com.gdg.withtrip.ui.popular.PopularCard
 
 object MockData {
@@ -20,6 +21,17 @@ object MockData {
         title = randomCityName(),
         subtitle = randomCityName(),
         image = randomCityImage()
+    )
+
+    fun getNotificationList() = List(24) {
+        getNotification(it)
+    }
+
+    fun getNotification(id: Int) = Notification(
+        id = id,
+        thumbnail = randomCityImage(),
+        title = randomCityName(),
+        subtitle = randomCityName()
     )
 
     val mockCities = listOf(
@@ -68,4 +80,6 @@ object MockData {
         )
 
     val lorem = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+
+
 }

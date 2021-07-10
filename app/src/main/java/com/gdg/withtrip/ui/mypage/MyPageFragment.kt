@@ -1,6 +1,7 @@
 package com.gdg.withtrip.ui.mypage
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,10 +15,18 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.gdg.withtrip.KEY_SEQ
 import com.gdg.withtrip.R
 import com.gdg.withtrip.SearchToolBarHolder
+import com.gdg.withtrip.base.ViewState
 import com.gdg.withtrip.databinding.FragmentMypageBinding
+import com.gdg.withtrip.ui.onboarding.OnBoardingActivity
+import com.gdg.withtrip.util.Prefs
+import com.solar.universe.extension.toast
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.HiltAndroidApp
 
+@AndroidEntryPoint
 class MyPageFragment : Fragment() {
 
     private var _binding: FragmentMypageBinding? = null
@@ -73,9 +82,17 @@ class MyPageFragment : Fragment() {
             })
         }
 
-        myPageViewModel.profile.observe(viewLifecycleOwner, {
-            binding.myImage.loadImageUrl(it.profileImage)
-            binding.myNickname.text = it.name
+        myPageViewModel.profile.observe(viewLifecycleOwner, { state ->
+            when(state) {
+                is ViewState.Success -> {
+                    binding.myImage.loadImageUrl(state.result.profileImage)
+                    binding.myNickname.text = state.result.name
+                }
+                is ViewState.Failure -> {
+                    requireContext().toast(state.errorMsg)
+                }
+            }
+
         })
 
         myPageViewModel.loginState.observe(viewLifecycleOwner, {
@@ -96,7 +113,10 @@ class MyPageFragment : Fragment() {
                 ivMenu.loadImage(icon)
                 tvMenu.text = resources.getString(text)
                 llMenu.setOnClickListener {
-
+                    Prefs.putString(KEY_SEQ, "")
+                    startActivity(Intent(requireContext(), OnBoardingActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    })
                 }
             }
         })

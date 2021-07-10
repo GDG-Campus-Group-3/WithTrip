@@ -31,7 +31,7 @@ class FeedFragment :
         bind.popularListView.adapter = PopularCardAdapter(this).apply {
             submit(MockData.randomPopularMockData())
         }
-        if (::searchToolBar.isInitialized) {
+        if (::searchToolBar.isInitialized && !searchToolBar.getController().searchWord.hasObservers()) {
             searchToolBar.getController().searchWord.observe(viewLifecycleOwner, {
                 Log.d("검색 단어 ->", it)
             })

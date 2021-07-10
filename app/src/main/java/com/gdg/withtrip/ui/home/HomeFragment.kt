@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
             ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        if (::searchToolBar.isInitialized) {
+        if (::searchToolBar.isInitialized && !searchToolBar.getController().searchWord.hasObservers()) {
             searchToolBar.getController().searchWord.observe(viewLifecycleOwner, {
                 Log.d("검색 단어 ->", it)
             })

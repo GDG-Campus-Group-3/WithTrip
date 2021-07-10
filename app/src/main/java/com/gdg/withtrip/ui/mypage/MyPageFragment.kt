@@ -70,7 +70,7 @@ class MyPageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initView()
 
-        if (::searchToolBar.isInitialized) {
+        if (::searchToolBar.isInitialized && !searchToolBar.getController().searchWord.hasObservers()) {
             searchToolBar.getController().searchWord.observe(viewLifecycleOwner, {
                 Log.d("검색 단어 ->", it)
             })
@@ -87,6 +87,8 @@ class MyPageFragment : Fragment() {
                     R.drawable.ic_logout to R.string.mypage_logout
                 }
                 LoginState.LOGOUT -> {
+                    binding.myImage.isVisible = false
+                    binding.myNickname.isVisible = false
                     binding.myProfile.llMenu.isVisible = false
                     binding.myWriteList.llMenu.isVisible = false
                     binding.myApplyList.llMenu.isVisible = false

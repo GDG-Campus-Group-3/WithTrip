@@ -2,6 +2,7 @@ package com.gdg.withtrip
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.gdg.withtrip.databinding.ActivityMainBinding
@@ -31,5 +32,19 @@ class MainActivity : AppCompatActivity() {
         )*/
         //setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            when (destination.id) {
+                R.id.tripDetailFragment2 ->hideToolbar()
+                else -> showToolbar()
+            }
+        }
+    }
+
+    private fun hideToolbar() {
+        binding.tbSearch.isVisible = false
+    }
+
+    private fun showToolbar() {
+        binding.tbSearch.isVisible = true
     }
 }

@@ -39,8 +39,9 @@ class FeedFragment :
             desc = popularCard.subtitle
         )
 
-        requireView().findNavController()
-            .navigate(R.id.navigate_to_trip_detail, bundleOf("tripDetail" to tripDetail))
+        requireView().findNavController().navigate(
+            FeedFragmentDirections.actionNavigationFeedToTripDetailFragment2(tripDetail)
+        )
     }
 
     override fun onClickLike(popularCard: PopularCard) {

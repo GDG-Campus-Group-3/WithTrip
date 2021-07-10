@@ -1,6 +1,8 @@
 package com.gdg.withtrip.ui.mypage
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +13,7 @@ import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.gdg.withtrip.R
+import com.gdg.withtrip.SearchToolBarHolder
 import com.gdg.withtrip.databinding.FragmentMypageBinding
 
 class MyPageFragment : Fragment() {
@@ -20,6 +23,9 @@ class MyPageFragment : Fragment() {
         get() = _binding!!
 
     private val myPageViewModel: MyPageViewModel by viewModels()
+
+    lateinit var searchToolBar: SearchToolBarHolder
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,6 +60,13 @@ class MyPageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
+
+        if (::searchToolBar.isInitialized) {
+            searchToolBar.getController().searchWord.observe(viewLifecycleOwner, {
+                Log.d("검색 단어 ->", it)
+            })
+        }
+
         myPageViewModel.profile.observe(viewLifecycleOwner, {
             binding.myImage.loadImageUrl(it.profileImage,centerCrop = true)
             binding.myNickname.text = it.name
@@ -78,6 +91,15 @@ class MyPageFragment : Fragment() {
             }
         })
 
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        try {
+            searchToolBar = context as SearchToolBarHolder
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     override fun onDestroy() {

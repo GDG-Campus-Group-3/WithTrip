@@ -61,8 +61,4 @@ class FeedFragment :
             e.printStackTrace()
         }
     }
-
-    override fun onClickLike(popularCard: PopularCard) {
-        tripViewModel.savePopularCard(popularCard)
-    }
 }

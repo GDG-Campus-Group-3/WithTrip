@@ -20,4 +20,10 @@
 
     <string name="notifications">Notifications</string>
     <string name="google_maps_key">AIzaSyC2xg__0ndc9rfuYien53InjLbIJY5S9fw</string>
+
+    <string name="title">제목</string>
+    <string name="location">위치</string>
+    <string name="person">인원</string>
+    <string name="date">일시</string>
+    <string name="desc">내용</string>
 </resources>

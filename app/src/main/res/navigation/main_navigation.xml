@@ -47,6 +47,4 @@
             android:name="tripDetail"
             app:argType="com.gdg.withtrip.ui.detail.TripDetail" />
     </fragment>
-
-
 </navigation>

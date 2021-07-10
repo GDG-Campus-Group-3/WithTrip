@@ -3,9 +3,11 @@ package com.gdg.withtrip.di
 import com.gdg.withtrip.db.repository.MapRepository
 import com.gdg.withtrip.db.repository.NotificationRepository
 import com.gdg.withtrip.db.repository.TripRepository
+import com.gdg.withtrip.db.repository.UserRepository
 import com.gdg.withtrip.db.repository.impl.MapRepositoryImpl
 import com.gdg.withtrip.db.repository.impl.NotificationRepositoryImpl
 import com.gdg.withtrip.db.repository.impl.TripRepositoryImpl
+import com.gdg.withtrip.db.repository.impl.UserRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -27,4 +29,8 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindMapRepository(impl: MapRepositoryImpl): MapRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindUserRepository(impl: UserRepositoryImpl): UserRepository
 }

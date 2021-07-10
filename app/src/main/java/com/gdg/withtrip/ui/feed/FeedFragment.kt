@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.gdg.withtrip.R
 import com.gdg.withtrip.SearchToolBarHolder
@@ -27,9 +28,14 @@ class FeedFragment :
     private val tripViewModel: TripViewModel by viewModels()
 
     override fun onViewCreated(bind: FragmentFeedBinding, savedInstanceState: Bundle?) {
-        bind.popularListView.adapter = PopularCardAdapter(this).apply {
-            submitList(MockData.randomPopularMockData())
-        }
+        tripViewModel.likeTripCardListLiveData.observe(viewLifecycleOwner, { list ->
+            bind.popularListView.adapter = PopularCardAdapter(this).apply {
+                submitList(list)
+                //submitList(MockData.randomPopularMockData())
+            }
+        })
+        tripViewModel.getFeedList()
+
         if (::searchToolBar.isInitialized && !searchToolBar.getController().searchWord.hasObservers()) {
             searchToolBar.getController().searchWord.observe(viewLifecycleOwner, {
                 Log.d("검색 단어 ->", it)

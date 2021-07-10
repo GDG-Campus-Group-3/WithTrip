@@ -8,9 +8,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-/**
- *  Created by Kenneth on 12/30/20
- */
 object NetworkClient {
     private const val CONNECTION_TIMEOUT = 10L
     private const val WRITE_TIMEOUT = 30L
@@ -19,7 +16,7 @@ object NetworkClient {
     inline fun <reified T>provideService(): T  {
         val retrofit = getRetrofit(
             buildOkHttpInterceptor(BuildConfig.DEBUG),
-            MOVIE_HOST
+            WITH_TRIP_HOST
         )
         return retrofit.create(T::class.java)
     }

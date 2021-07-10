@@ -28,6 +28,16 @@ class TripViewModel @Inject constructor(
         }
     }
 
+    fun getFeedList() = viewModelScope.launch {
+        runCatching {
+            tripRepository.getFeedList()
+        }.onSuccess {
+            _likeTripCardListLiveData.postValue(it)
+        }.onFailure {
+
+        }
+    }
+
     fun savePopularCard(popularCard: PopularCard) = viewModelScope.launch {
         runCatching {
             tripRepository.insertPopularTrip(popularCard)

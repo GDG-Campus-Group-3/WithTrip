@@ -46,10 +46,6 @@
         app:layout_constraintTop_toBottomOf="@id/my_nickname">
 
         <include
-            android:id="@+id/my_profile"
-            layout="@layout/view_my_item" />
-
-        <include
             android:id="@+id/my_write_list"
             layout="@layout/view_my_item" />
 

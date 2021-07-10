@@ -11,6 +11,7 @@ import androidx.annotation.DrawableRes
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.gdg.withtrip.R
@@ -39,19 +40,13 @@ class MyPageFragment : Fragment() {
     }
 
     private fun initView() {
-        binding.myProfile.apply {
-            ivMenu.loadImage(R.drawable.ic_profile)
-            tvMenu.text = resources.getString(R.string.mypage_profile)
-            llMenu.setOnClickListener {
-
-            }
-        }
-
         binding.myWriteList.apply {
             ivMenu.loadImage(R.drawable.ic_board)
             tvMenu.text = resources.getString(R.string.mypage_my_board)
             llMenu.setOnClickListener {
-
+                findNavController().navigate(
+                    MyPageFragmentDirections.actionNavigationMypageToMyFeedFragment()
+                )
             }
         }
 
@@ -89,7 +84,6 @@ class MyPageFragment : Fragment() {
                 LoginState.LOGOUT -> {
                     binding.myImage.isVisible = false
                     binding.myNickname.isVisible = false
-                    binding.myProfile.llMenu.isVisible = false
                     binding.myWriteList.llMenu.isVisible = false
                     binding.myApplyList.llMenu.isVisible = false
                     R.drawable.ic_login to R.string.mypage_login

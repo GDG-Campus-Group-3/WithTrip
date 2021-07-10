@@ -12,7 +12,7 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/trip_detail_image"
             android:layout_width="match_parent"
-            android:layout_height="360dp"
+            android:layout_height="240dp"
             android:background="@android:color/white"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
@@ -21,60 +21,146 @@
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.SelectedCornerRadius"
             tools:src="@tools:sample/backgrounds/scenic" />
 
-        <include
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            app:layout_constraintEnd_toEndOf="@+id/trip_detail_image"
-            app:layout_constraintBottom_toBottomOf="@id/trip_detail_image"
-            layout="@layout/ic_favorite"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btn_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/trip_detail_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:text="@{vm.name}"
-            android:textSize="30sp"
+            android:layout_margin="24dp"
+            android:textSize="24sp"
+            android:textColor="#4F4F4F"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/trip_detail_image"
             tools:text="@tools:sample/cities" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/trip_detail_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{vm.location}"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/trip_detail_name"
-            app:layout_constraintTop_toBottomOf="@id/trip_detail_name"
-            tools:text="@tools:sample/cities" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_writer"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_writer"
+            app:layout_constraintStart_toStartOf="@+id/trip_detail_name"
+            app:layout_constraintTop_toBottomOf="@+id/trip_detail_name" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/trip_detail_title"
+            android:id="@+id/tv_writer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:text="@{vm.title}"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/trip_detail_name"
-            app:layout_constraintTop_toBottomOf="@id/trip_detail_location"
-            tools:text="@tools:sample/lorem" />
+            android:textColor="#4F4F4F"
+            android:textSize="18sp"
+            android:layout_marginStart="6dp"
+            app:layout_constraintStart_toEndOf="@id/iv_writer"
+            app:layout_constraintTop_toTopOf="@+id/iv_writer"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_writer"
+            tools:text="@tools:sample/cities" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_marker"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_board_marker"
+            app:layout_constraintStart_toStartOf="@+id/iv_writer"
+            app:layout_constraintTop_toBottomOf="@+id/iv_writer" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_marker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#4F4F4F"
+            android:textSize="18sp"
+            android:layout_marginStart="6dp"
+            app:layout_constraintStart_toEndOf="@id/iv_marker"
+            app:layout_constraintTop_toTopOf="@+id/iv_marker"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_marker"
+            tools:text="@tools:sample/cities" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_recruitment"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_ruitment"
+            app:layout_constraintStart_toStartOf="@+id/iv_marker"
+            app:layout_constraintTop_toBottomOf="@+id/iv_marker" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_recruitment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#4F4F4F"
+            android:textSize="18sp"
+            android:layout_marginStart="6dp"
+            app:layout_constraintStart_toEndOf="@id/iv_recruitment"
+            app:layout_constraintTop_toTopOf="@+id/iv_recruitment"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_recruitment"
+            tools:text="@tools:sample/cities" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_calender"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_calender"
+            app:layout_constraintStart_toStartOf="@+id/iv_recruitment"
+            app:layout_constraintTop_toBottomOf="@+id/iv_recruitment" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_calender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#4F4F4F"
+            android:textSize="18sp"
+            android:layout_marginStart="6dp"
+            app:layout_constraintStart_toEndOf="@id/iv_calender"
+            app:layout_constraintTop_toTopOf="@+id/iv_calender"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_calender"
+            tools:text="@tools:sample/cities" />
+
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/trip_detail_desc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
-            android:lineSpacingExtra="8dp"
+            android:background="@drawable/bg_trip_detail_content"
+            android:padding="12dp"
+            android:layout_marginTop="26dp"
+            android:lineSpacingExtra="6dp"
             android:text="@{vm.desc}"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/trip_detail_name"
-            app:layout_constraintTop_toBottomOf="@id/trip_detail_title"
-            tools:text="@tools:sample/lorem/random" />
+            app:layout_constraintStart_toStartOf="@id/iv_calender"
+            app:layout_constraintTop_toBottomOf="@id/iv_calender"
+            tools:text="이번주 토요일에 한라산 등반하실 분 저포함 4명 구합니다! 등반 소요 시간은 약 3시간 정도구요 하산 후에 간단하게 뒷풀이 하고 헤어질 예정입니다! " />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_apply"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/trip_detail_desc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="28dp"
+            android:textStyle="bold"
+            tools:text="참여확정"
+            android:textColor="#2F80ED"
+            android:background="@drawable/btn_apply_confirm"
+            android:layout_height="wrap_content"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

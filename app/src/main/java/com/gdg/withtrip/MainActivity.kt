@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() ,SearchToolBarHolder{
         navView.setupWithNavController(navController)
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             when (destination.id) {
-                R.id.tripDetailFragment2 ->hideToolbar()
+                R.id.tripDetailFragment2,R.id.myFeedFragment ->hideToolbar()
                 else -> showToolbar()
             }
         }

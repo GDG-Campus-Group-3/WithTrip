@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     android:background="@drawable/bgsplash">
 
+    <include
+        android:id="@+id/loading"
+        android:visibility="gone"
+        layout="@layout/loading_layout"/>
+
     <ImageView
         android:id="@+id/iv_logo"
         android:layout_width="wrap_content"

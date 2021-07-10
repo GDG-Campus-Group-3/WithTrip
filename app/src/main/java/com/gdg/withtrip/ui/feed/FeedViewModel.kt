@@ -1,13 +1,13 @@
-package com.gdg.withtrip.ui.dashboard
+package com.gdg.withtrip.ui.feed
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class FeedViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+        value = "This is home Fragment"
     }
     val text: LiveData<String> = _text
 }

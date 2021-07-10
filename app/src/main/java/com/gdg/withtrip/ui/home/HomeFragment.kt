@@ -1,49 +1,43 @@
 package com.gdg.withtrip.ui.home
 
 import android.os.Bundle
-import androidx.core.os.bundleOf
-import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
-import com.gdg.withtrip.R
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.gdg.withtrip.databinding.FragmentHomeBinding
-import com.gdg.withtrip.ui.MockData
-import com.gdg.withtrip.ui.detail.TripDetail
-import com.gdg.withtrip.ui.popular.PopularCard
-import com.gdg.withtrip.ui.popular.PopularCardAdapter
-import com.gdg.withtrip.ui.popular.PopularCardEventListener
-import com.gdg.withtrip.ui.trip.TripViewModel
-import com.solar.universe.binding.UniverseViewFragment
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
-class HomeFragment :
-    UniverseViewFragment<FragmentHomeBinding>(R.layout.fragment_home, FragmentHomeBinding::bind),
-    PopularCardEventListener {
+class HomeFragment : Fragment() {
 
-    private val tripViewModel: TripViewModel by viewModels()
+    private lateinit var homeViewModel: HomeViewModel
+    private var _binding: FragmentHomeBinding? = null
 
-    override fun onViewCreated(bind: FragmentHomeBinding, savedInstanceState: Bundle?) {
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        homeViewModel =
+            ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        bind.popularListView.adapter = PopularCardAdapter(this).apply {
-            submit(MockData.randomPopularMockData())
-        }
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+//        binding.myFavoriteList.root.setOnClickListener {
+//            requireView().findNavController()
+//                .navigate(R.id.action_mainFragment_to_likeFragment)
+//        }
+
+        return root
     }
 
-    override fun onClickCard(popularCard: PopularCard) {
-        val tripDetail = TripDetail(
-            image = popularCard.image,
-            name = popularCard.title,
-            location = popularCard.title,
-            title = popularCard.title,
-            desc = popularCard.subtitle
-        )
-
-        requireView().findNavController()
-            .navigate(R.id.navigate_to_trip_detail, bundleOf("tripDetail" to tripDetail))
-    }
-
-    override fun onClickLike(popularCard: PopularCard) {
-        tripViewModel.savePopularCard(popularCard)
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

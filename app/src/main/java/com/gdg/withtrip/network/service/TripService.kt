@@ -15,7 +15,18 @@ interface TripService {
         @Query("SEQ") seq :Int
     ) :BoardDetailResponse
 
+    @GET("gdg/newBoard")
+    suspend fun postTrip(
+        @Query("USER_SEQ") seq: String,
+        @Query("TITLE") title: String,
+        @Query("LOCATION_NAME") locationName: String,
+        @Query("START_DATE") startDate: String,
+        @Query("END_DATE") endDate: String,
+        @Query("COUNT") count: Int,
+        @Query("CONTENT") content: String,
+    ): GetBoardListResponse
 }
+
 
 
 data class BoardDetailResponse(
@@ -26,4 +37,6 @@ data class BoardDetailResponse(
         @SerializedName("CONTENT")
         val content: String?,
     )
+
+
 }

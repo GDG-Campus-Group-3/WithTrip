@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -23,33 +24,58 @@
         android:hint="@string/title"
         app:layout_constraintTop_toBottomOf="@id/feed_write_back"/>
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/feed_write_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textSize="18sp"
+        android:background="@drawable/bg_edit_text"
         android:drawableStart="@drawable/ic_icons_map_marker"
         android:drawablePadding="10.5dp"
         android:hint="@string/location"
         app:layout_constraintTop_toBottomOf="@id/feed_write_title" />
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/feed_write_person"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/ic_group"
         android:drawablePadding="10.5dp"
         android:hint="@string/person"
-        app:layout_constraintTop_toBottomOf="@id/feed_write_location" />
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textSize="18sp"
+        android:background="@drawable/bg_edit_text"
+        app:layout_constraintTop_toBottomOf="@id/feed_write_location"
+        tools:layout_editor_absoluteX="20dp" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/feed_write_date"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/feed_write_start_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/ic_icons_calender"
         android:drawablePadding="10.5dp"
-        android:editable="false"
-        android:hint="@string/date"
+        android:hint="@string/start_date"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textSize="18sp"
+        android:background="@drawable/bg_edit_text"
         app:layout_constraintTop_toBottomOf="@id/feed_write_person" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/feed_write_end_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_icons_calender"
+        android:drawablePadding="10.5dp"
+        android:hint="@string/end_date"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textSize="18sp"
+        android:background="@drawable/bg_edit_text"
+        app:layout_constraintTop_toBottomOf="@id/feed_write_start_date" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/feed_write_input"
@@ -62,7 +88,7 @@
         android:background="@drawable/bg_feed_write_input"
         android:hint="@string/desc"
         app:layout_constraintBottom_toTopOf="@id/feed_write_register_btn"
-        app:layout_constraintTop_toBottomOf="@id/feed_write_date"
+        app:layout_constraintTop_toBottomOf="@id/feed_write_end_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

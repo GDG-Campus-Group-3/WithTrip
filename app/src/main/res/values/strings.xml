@@ -27,7 +27,8 @@
     <string name="title">제목</string>
     <string name="location">위치</string>
     <string name="person">인원</string>
-    <string name="date">일시</string>
+    <string name="start_date">시작 일시</string>
+    <string name="end_date">종료 일시</string>
     <string name="desc">내용</string>
 
     <string name="login_title">withTrip</string>

@@ -1,4 +1,4 @@
-package com.gdg.withtrip.ui.repository
+package com.gdg.withtrip.db.repository
 
 import com.gdg.withtrip.ui.popular.PopularCard
 

@@ -1,7 +1,7 @@
 package com.gdg.withtrip.di
 
-import com.gdg.withtrip.ui.repository.TripRepository
-import com.gdg.withtrip.ui.repository.impl.TripRepositoryImpl
+import com.gdg.withtrip.db.repository.TripRepository
+import com.gdg.withtrip.db.repository.impl.TripRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

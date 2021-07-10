@@ -1,6 +1,7 @@
 package com.gdg.withtrip.ui
 
 import com.gdg.withtrip.ui.detail.TripDetail
+import com.gdg.withtrip.ui.map.MapMarker
 import com.gdg.withtrip.ui.notifications.Notification
 import com.gdg.withtrip.ui.popular.PopularCard
 
@@ -26,6 +27,30 @@ object MockData {
     fun getNotificationList() = List(24) {
         getNotification(it)
     }
+
+    fun getMapMarkerList() = listOf(
+        MapMarker(
+            title = randomCityName(),
+            37.551692,
+            126.922946
+        ),
+        MapMarker(
+            title = randomCityName(),
+            37.553692, 126.922314
+        ),
+        MapMarker(
+            title = randomCityName(),
+            37.553692, 126.922314
+        ),
+        MapMarker(
+            title = randomCityName(),
+            37.55532, 126.926892
+        ),
+        MapMarker(
+            title = randomCityName(),
+            37.555106, 126.915943
+        )
+    )
 
     fun getNotification(id: Int) = Notification(
         id = id,

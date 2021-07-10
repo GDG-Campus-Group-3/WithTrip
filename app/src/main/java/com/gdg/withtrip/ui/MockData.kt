@@ -19,8 +19,11 @@ object MockData {
 
     fun getPopularCardMock() = PopularCard(
         title = randomCityName(),
-        subtitle = randomCityName(),
-        image = randomCityImage()
+        writer = "3조",
+        image = randomCityImage(),
+        place = "서울",
+        date = "2021.07.20 10:00:00",
+        people = "2/4"
     )
 
     fun getNotificationList() = List(24) {

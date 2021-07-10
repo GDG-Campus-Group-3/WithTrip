@@ -44,7 +44,8 @@ class FeedFragment :
             name = popularCard.writer,
             location = popularCard.place,
             title = popularCard.title,
-            desc = popularCard.subtitle
+            desc = "이번주 토요일에 한라산 등반하실 분 저포함 4명 구합니다! 등반 소요 시간은 약 3시간 정도구요 하산 후에 간단하게 뒷풀이 하고 헤어질 예정입니다!",
+            date = popularCard.date
         )
 
         requireView().findNavController().navigate(

@@ -33,23 +33,28 @@ object MockData {
 
     fun getMapMarkerList() = listOf(
         MapMarker(
+            thumbnail = randomCityImage(),
             title = randomCityName(),
             37.551692,
             126.922946
         ),
         MapMarker(
+            thumbnail = randomCityImage(),
             title = randomCityName(),
             37.553692, 126.922314
         ),
         MapMarker(
+            thumbnail = randomCityImage(),
             title = randomCityName(),
             37.553692, 126.922314
         ),
         MapMarker(
+            thumbnail = randomCityImage(),
             title = randomCityName(),
             37.55532, 126.926892
         ),
         MapMarker(
+            thumbnail = randomCityImage(),
             title = randomCityName(),
             37.555106, 126.915943
         )

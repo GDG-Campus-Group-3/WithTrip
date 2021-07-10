@@ -10,6 +10,9 @@
         android:name="com.gdg.withtrip.ui.map.MapFragment"
         android:label="@string/title_home">
 
+        <action
+            android:id="@+id/action_navigation_home_to_tripDetailFragment"
+            app:destination="@id/tripDetailFragment2" />
     </fragment>
 
     <fragment
@@ -44,4 +47,6 @@
             android:name="tripDetail"
             app:argType="com.gdg.withtrip.ui.detail.TripDetail" />
     </fragment>
+
+
 </navigation>

@@ -5,4 +5,6 @@ import com.gdg.withtrip.ui.popular.PopularCard
 interface TripRepository {
     suspend fun insertPopularTrip(popularCard: PopularCard)
     suspend fun getLikeTripCardList(): List<PopularCard>
+
+    suspend fun getFeedList(): List<PopularCard>
 }

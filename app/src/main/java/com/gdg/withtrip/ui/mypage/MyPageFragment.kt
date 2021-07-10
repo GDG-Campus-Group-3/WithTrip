@@ -11,6 +11,7 @@ import androidx.annotation.DrawableRes
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.gdg.withtrip.R
@@ -43,7 +44,9 @@ class MyPageFragment : Fragment() {
             ivMenu.loadImage(R.drawable.ic_board)
             tvMenu.text = resources.getString(R.string.mypage_my_board)
             llMenu.setOnClickListener {
-
+                findNavController().navigate(
+                    MyPageFragmentDirections.actionNavigationMypageToMyFeedFragment()
+                )
             }
         }
 

@@ -1,5 +1,6 @@
 package com.gdg.withtrip.ui
 
+import com.gdg.withtrip.ui.detail.ApplyState
 import com.gdg.withtrip.ui.detail.TripDetail
 import com.gdg.withtrip.ui.map.MapMarker
 import com.gdg.withtrip.ui.notifications.Notification
@@ -24,7 +25,8 @@ object MockData {
         image = randomCityImage(),
         place = "서울",
         date = "2021.07.20 10:00:00",
-        people = "2/4"
+        people = "2/4",
+        state = ApplyState.values().toList().shuffled().first()
     )
 
     fun getNotificationList() = List(24) {

@@ -12,13 +12,13 @@ class ResponseMapper @Inject constructor() {
         return response.r?.list?.map {
             PopularCard(
                 title = it?.title ?: "N/A",
-                writer = "N/A",
-                image = "N/A",
+                writer = it?.nickname ?: "N/A",
+                image = "https://post-phinf.pstatic.net/MjAxODAzMDhfMTQ1/MDAxNTIwNDk1Mjk0MTY2.kmTCsEWbZonelokVlM8R8G1X4nw7ggUkalTFOIcUP1sg.4h7NpGXhL2ORXPeTGxPdCrh_FnOSSSTr8B5kCjU-244g.JPEG/seoul-travel-intro.jpg?type=w1200",
                 place = it?.locationName ?: "N/A",
-                people = "N/A",
+                people = "${it?.nowCount}/${it?.maxCount}",
                 date = it?.startDate ?: "N/A",
                 state = ApplyState.NOT_APPLY, //(it.state ?: 0)
-                id = 0,
+                id = it?.seq!!,
                 subtitle = "subtitle"
             )
         } ?: listOf()

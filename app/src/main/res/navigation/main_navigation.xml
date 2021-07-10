@@ -17,10 +17,9 @@
         android:name="com.gdg.withtrip.ui.feed.FeedFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_feed">
-
         <action
-            android:id="@+id/navigate_to_trip_detail"
-            app:destination="@id/tripDetailFragment" />
+            android:id="@+id/action_navigation_feed_to_tripDetailFragment2"
+            app:destination="@id/tripDetailFragment2" />
     </fragment>
 
     <fragment
@@ -36,5 +35,13 @@
             android:id="@+id/action_mypageFragment_to_likeFragment"
             app:destination="@id/likeFragment" />
 
+    </fragment>
+    <fragment
+        android:id="@+id/tripDetailFragment2"
+        android:name="com.gdg.withtrip.ui.detail.TripDetailFragment"
+        android:label="TripDetailFragment" >
+        <argument
+            android:name="tripDetail"
+            app:argType="com.gdg.withtrip.ui.detail.TripDetail" />
     </fragment>
 </navigation>

@@ -1,11 +1,14 @@
 package com.gdg.withtrip.ui.home
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.gdg.withtrip.SearchToolBarHolder
 import com.gdg.withtrip.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -17,6 +20,8 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    lateinit var searchToolBar: SearchToolBarHolder
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -24,16 +29,24 @@ class HomeFragment : Fragment() {
     ): View? {
         homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-//        binding.myFavoriteList.root.setOnClickListener {
-//            requireView().findNavController()
-//                .navigate(R.id.action_mainFragment_to_likeFragment)
-//        }
+        if (::searchToolBar.isInitialized) {
+            searchToolBar.getController().searchWord.observe(viewLifecycleOwner, {
+                Log.d("검색 단어 ->", it)
+            })
+        }
 
-        return root
+        return binding.root
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        try {
+            searchToolBar = context as SearchToolBarHolder
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     override fun onDestroyView() {

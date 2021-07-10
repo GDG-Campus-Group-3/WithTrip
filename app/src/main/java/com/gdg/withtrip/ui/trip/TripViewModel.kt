@@ -4,9 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.gdg.withtrip.ui.popular.PopularCard
-
 import com.gdg.withtrip.db.repository.TripRepository
+import com.gdg.withtrip.ui.popular.PopularCard
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

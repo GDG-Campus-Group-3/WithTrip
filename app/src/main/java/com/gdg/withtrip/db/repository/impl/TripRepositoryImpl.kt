@@ -1,8 +1,8 @@
 package com.gdg.withtrip.db.repository.impl
 
 import com.gdg.withtrip.db.dao.PopularCardDao
-import com.gdg.withtrip.ui.popular.PopularCard
 import com.gdg.withtrip.db.repository.TripRepository
+import com.gdg.withtrip.ui.popular.PopularCard
 import javax.inject.Inject
 
 

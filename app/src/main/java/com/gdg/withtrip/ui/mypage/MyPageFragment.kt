@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
@@ -37,9 +38,17 @@ class MyPageFragment : Fragment() {
         return binding.root
     }
 
-    private fun initView(){
-        binding.myBoardList.apply {
-            ivMenu.loadImage(R.drawable.ic_board_list_24dp)
+    private fun initView() {
+        binding.myProfile.apply {
+            ivMenu.loadImage(R.drawable.ic_profile)
+            tvMenu.text = resources.getString(R.string.mypage_profile)
+            llMenu.setOnClickListener {
+
+            }
+        }
+
+        binding.myWriteList.apply {
+            ivMenu.loadImage(R.drawable.ic_board)
             tvMenu.text = resources.getString(R.string.mypage_my_board)
             llMenu.setOnClickListener {
 
@@ -47,7 +56,7 @@ class MyPageFragment : Fragment() {
         }
 
         binding.myApplyList.apply {
-            ivMenu.loadImage(R.drawable.ic_apply_black_24dp)
+            ivMenu.loadImage(R.drawable.ic_list)
             tvMenu.text = resources.getString(R.string.mypage_my_apply_board)
             llMenu.setOnClickListener {
 
@@ -68,17 +77,20 @@ class MyPageFragment : Fragment() {
         }
 
         myPageViewModel.profile.observe(viewLifecycleOwner, {
-            binding.myImage.loadImageUrl(it.profileImage,centerCrop = true)
+            binding.myImage.loadImageUrl(it.profileImage)
             binding.myNickname.text = it.name
         })
 
-        myPageViewModel.loginState.observe(viewLifecycleOwner,{
-          val (icon,text) =  when(it){
-                LoginState.LOGIN ->{
-                    R.drawable.ic_logout_black_24dp to R.string.mypage_logout
+        myPageViewModel.loginState.observe(viewLifecycleOwner, {
+            val (icon, text) = when (it) {
+                LoginState.LOGIN -> {
+                    R.drawable.ic_logout to R.string.mypage_logout
                 }
-                LoginState.LOGOUT ->{
-                    R.drawable.ic_login_black_24dp to R.string.mypage_login
+                LoginState.LOGOUT -> {
+                    binding.myProfile.llMenu.isVisible = false
+                    binding.myWriteList.llMenu.isVisible = false
+                    binding.myApplyList.llMenu.isVisible = false
+                    R.drawable.ic_login to R.string.mypage_login
                 }
             }
 
@@ -108,13 +120,13 @@ class MyPageFragment : Fragment() {
     }
 }
 
- fun ImageView.loadImage(
+fun ImageView.loadImage(
     @DrawableRes imageUrl: Int
 ) = Glide.with(this)
     .load(imageUrl)
     .into(this)
 
- fun ImageView.loadImageUrl(
+fun ImageView.loadImageUrl(
     imageUrl: String?,
     @DrawableRes placeHolder: Int = 0,
     centerCrop: Boolean = false

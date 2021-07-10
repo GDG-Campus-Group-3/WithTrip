@@ -20,8 +20,8 @@
         <item name="cornerFamilyTopRight">rounded</item>
     </style>
 
-    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
-        <item name="cornerSize">50%</item>
+    <style name="ShapeAppearanceOverlay.App.CornerSize20Percent" parent="">
+        <item name="cornerSize">20%</item>
     </style>
 
     <style name="ShapeAppearanceOverlay.App.Circle" parent="">

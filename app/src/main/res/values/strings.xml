@@ -5,9 +5,11 @@
     <string name="title_notifications">마이트립</string>
     <string name="title_mypage">마이페이지</string>
 
-    <string name="mypage_my_board">내가 작성한 글</string>
+    <string name="mypage_profile">프로필</string>
 
-    <string name="mypage_my_apply_board">내가 신청한 글</string>
+    <string name="mypage_my_board">내가 쓴 트립</string>
+
+    <string name="mypage_my_apply_board">참여 신청한 트립</string>
 
     <string name="mypage_login">로그인</string>
     <string name="mypage_logout">로그아웃</string>

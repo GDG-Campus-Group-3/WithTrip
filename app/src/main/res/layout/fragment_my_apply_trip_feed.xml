@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:text="내가 쓴 트립"
+        android:text="참여 신청한 트립"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -41,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/popular_title"
-        tools:listitem="@layout/trip_card_1_v2" />
+        tools:listitem="@layout/apply_trip_card" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

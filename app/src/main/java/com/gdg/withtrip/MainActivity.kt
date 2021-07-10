@@ -12,23 +12,23 @@ import com.gdg.withtrip.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
-interface SearchToolBarController{
-    val searchWord : LiveData<String>
-    fun updateSearchWord(word : String)
+interface SearchToolBarController {
+    val searchWord: LiveData<String>
+    fun updateSearchWord(word: String)
 }
 
-interface SearchToolBarHolder{
-    fun getController() : SearchToolBarController
+interface SearchToolBarHolder {
+    fun getController(): SearchToolBarController
 }
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() ,SearchToolBarHolder{
+class MainActivity : AppCompatActivity(), SearchToolBarHolder {
 
     private lateinit var binding: ActivityMainBinding
 
     val viewModel: MainViewModel by viewModels()
 
-    override fun getController(): SearchToolBarController  = viewModel
+    override fun getController(): SearchToolBarController = viewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,14 +42,14 @@ class MainActivity : AppCompatActivity() ,SearchToolBarHolder{
         navView.setupWithNavController(navController)
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             when (destination.id) {
-                R.id.tripDetailFragment2,R.id.myFeedFragment ->hideToolbar()
+                R.id.tripDetailFragment2, R.id.myFeedFragment, R.id.myApplyFeedFragment -> hideToolbar()
                 else -> showToolbar()
             }
         }
         initToolbar()
     }
 
-    private fun initToolbar(){
+    private fun initToolbar() {
         binding.etSearch.addTextChangedListener { text ->
             val searchWord = text.toString()
             viewModel.updateSearchWord(searchWord)

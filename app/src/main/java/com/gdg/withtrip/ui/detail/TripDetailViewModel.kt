@@ -36,9 +36,9 @@ data class DetailPageModel(
     val applyState :ApplyState
 )
 enum class RecruitmentState(val text :String){
-    COMPLETE("모집완료"), RECRUIT("모집"), CANCEL("모집취소")
+    COMPLETE("모집완료"), RECRUIT("모집")
 }
 
-enum class ApplyState{
-    NOT_APPLY, APPLY_CONFIRM, APPLY_WAIT
+enum class ApplyState(val text : String){
+    NOT_APPLY(""), APPLY_CONFIRM("참여확정"), APPLYING("진행중"), CANCEL("취소")
 }

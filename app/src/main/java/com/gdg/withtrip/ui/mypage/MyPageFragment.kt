@@ -54,7 +54,9 @@ class MyPageFragment : Fragment() {
             ivMenu.loadImage(R.drawable.ic_list)
             tvMenu.text = resources.getString(R.string.mypage_my_apply_board)
             llMenu.setOnClickListener {
-
+                findNavController().navigate(
+                    MyPageFragmentDirections.actionNavigationMypageToMyApplyFeedFragment()
+                )
             }
         }
 

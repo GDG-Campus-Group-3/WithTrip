@@ -28,7 +28,6 @@ class TripDetailFragment : UniverseViewFragment<FragmentTripDetailBinding>(
         tripDetailViewModel.tripDetailLiveData.observe(viewLifecycleOwner, {
             render(it.tripDetail)
             updateRecruitState(it.recruitmentState)
-            if(it.recruitmentState == RecruitmentState.CANCEL) return@observe
             updateApplyState(it.applyState)
         })
     }
@@ -47,28 +46,6 @@ class TripDetailFragment : UniverseViewFragment<FragmentTripDetailBinding>(
 
     private fun updateRecruitState(state: RecruitmentState) {
         binding.tvRecruitment.text = state.text
-        with(binding) {
-            when (state) {
-                RecruitmentState.CANCEL -> {
-                    btnApply.text = "취소"
-                    btnApply.setTextColor(Color.parseColor("#BDBDBD"))
-                    tripDetailName.setTextColor(Color.parseColor("#BDBDBD"))
-                    tvWriter.setTextColor(Color.parseColor("#BDBDBD"))
-                    tvMarker .setTextColor(Color.parseColor("#BDBDBD"))
-                    tripDetailDesc.setTextColor(Color.parseColor("#BDBDBD"))
-                    tvCalender.setTextColor(Color.parseColor("#BDBDBD"))
-                    ivCalender.alpha = 0.5f
-                    ivMarker.alpha = 0.5f
-                    ivRecruitment.alpha = 0.5f
-                    ivWriter.alpha = 0.5f
-
-
-                    binding.tvRecruitment.setTextColor(Color.parseColor("#BDBDBD"))
-                    btnApply.background =
-                        ResourcesCompat.getDrawable(resources, R.drawable.btn_apply_close, null)
-                }
-            }
-        }
     }
 
     private fun updateApplyState(state: ApplyState) {
@@ -77,12 +54,14 @@ class TripDetailFragment : UniverseViewFragment<FragmentTripDetailBinding>(
                 ApplyState.APPLY_CONFIRM -> {
                     text = "참여확정"
                     setTextColor(Color.parseColor("#2F80ED"))
-                    background = ResourcesCompat.getDrawable(resources,R.drawable.btn_apply_confirm,null)
+                    background =
+                        ResourcesCompat.getDrawable(resources, R.drawable.btn_apply_confirm, null)
                 }
-                ApplyState.APPLY_WAIT -> {
+                ApplyState.APPLYING -> {
                     text = "참여취소"
                     setTextColor(Color.parseColor("#FFFFFF"))
-                    background = ResourcesCompat.getDrawable(resources,R.drawable.btn_apply_cancel,null)
+                    background =
+                        ResourcesCompat.getDrawable(resources, R.drawable.btn_apply_cancel, null)
                     setOnClickListener {
                         tripDetailViewModel.onClickCancelTrip()
                     }
@@ -90,9 +69,27 @@ class TripDetailFragment : UniverseViewFragment<FragmentTripDetailBinding>(
                 ApplyState.NOT_APPLY -> {
                     text = "참여"
                     setTextColor(Color.parseColor("#FFFFFF"))
-                    background = ResourcesCompat.getDrawable(resources,R.drawable.btn_apply,null)
+                    background = ResourcesCompat.getDrawable(resources, R.drawable.btn_apply, null)
                     setOnClickListener {
                         tripDetailViewModel.onClickApplyTrip()
+                    }
+                }
+                ApplyState.CANCEL -> {
+                    with(binding) {
+                        btnApply.text = "취소"
+                        btnApply.setTextColor(Color.parseColor("#BDBDBD"))
+                        tripDetailName.setTextColor(Color.parseColor("#BDBDBD"))
+                        tvWriter.setTextColor(Color.parseColor("#BDBDBD"))
+                        tvMarker.setTextColor(Color.parseColor("#BDBDBD"))
+                        tripDetailDesc.setTextColor(Color.parseColor("#BDBDBD"))
+                        tvCalender.setTextColor(Color.parseColor("#BDBDBD"))
+                        ivCalender.alpha = 0.5f
+                        ivMarker.alpha = 0.5f
+                        ivRecruitment.alpha = 0.5f
+                        ivWriter.alpha = 0.5f
+                        tvRecruitment.setTextColor(Color.parseColor("#BDBDBD"))
+                        btnApply.background =
+                            ResourcesCompat.getDrawable(resources, R.drawable.btn_apply_close, null)
                     }
                 }
             }

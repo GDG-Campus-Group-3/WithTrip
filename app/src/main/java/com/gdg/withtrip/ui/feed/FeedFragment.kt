@@ -3,7 +3,6 @@ package com.gdg.withtrip.ui.feed
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import com.gdg.withtrip.R
@@ -29,7 +28,7 @@ class FeedFragment :
 
     override fun onViewCreated(bind: FragmentFeedBinding, savedInstanceState: Bundle?) {
         bind.popularListView.adapter = PopularCardAdapter(this).apply {
-            submit(MockData.randomPopularMockData())
+            submitList(MockData.randomPopularMockData())
         }
         if (::searchToolBar.isInitialized && !searchToolBar.getController().searchWord.hasObservers()) {
             searchToolBar.getController().searchWord.observe(viewLifecycleOwner, {
@@ -42,8 +41,8 @@ class FeedFragment :
     override fun onClickCard(popularCard: PopularCard) {
         val tripDetail = TripDetail(
             image = popularCard.image,
-            name = popularCard.title,
-            location = popularCard.title,
+            name = popularCard.writer,
+            location = popularCard.place,
             title = popularCard.title,
             desc = popularCard.subtitle
         )

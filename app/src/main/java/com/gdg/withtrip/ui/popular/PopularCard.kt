@@ -8,7 +8,12 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "popular_card")
 data class PopularCard(
     @ColumnInfo(name = "title") val title: String,
-    @ColumnInfo(name = "subtitle") val subtitle: String,
+    @ColumnInfo(name = "writer") val writer: String,
     @ColumnInfo(name = "image") val image: String,
-    @PrimaryKey(autoGenerate = true) val id: Int = 0
+    @ColumnInfo(name = "place") val place: String,
+    @ColumnInfo(name = "people") val people: String,
+    @ColumnInfo(name = "date") val date: String,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    @ColumnInfo(name = "subtitle") val subtitle: String = "",
 )
+

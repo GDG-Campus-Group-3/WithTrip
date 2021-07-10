@@ -17,7 +17,9 @@ import com.bumptech.glide.request.RequestOptions
 import com.gdg.withtrip.R
 import com.gdg.withtrip.SearchToolBarHolder
 import com.gdg.withtrip.databinding.FragmentMypageBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MyPageFragment : Fragment() {
 
     private var _binding: FragmentMypageBinding? = null

@@ -26,6 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.trip.write.TripWriteActivity"/>
+        <activity android:name=".ui.map.CenterMapActivity"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

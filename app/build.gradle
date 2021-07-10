@@ -101,6 +101,7 @@ dependencies {
     implementation 'com.github.KennethSS:Auth:1.0.1'
 
     implementation 'com.afollestad.material-dialogs:datetime:3.2.1'
+    implementation 'com.afollestad.material-dialogs:input:3.3.0'
 
     implementation ('com.facebook.android:facebook-android-sdk:5.15.3') {
         exclude  group:'com.android.support', module:'support-annotations'

@@ -47,6 +47,8 @@ class MyPageFragment : Fragment() {
 
             }
         }
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,6 +57,25 @@ class MyPageFragment : Fragment() {
         myPageViewModel.profile.observe(viewLifecycleOwner, {
             binding.myImage.loadImageUrl(it.profileImage,centerCrop = true)
             binding.myNickname.text = it.name
+        })
+
+        myPageViewModel.loginState.observe(viewLifecycleOwner,{
+          val (icon,text) =  when(it){
+                LoginState.LOGIN ->{
+                    R.drawable.ic_logout_black_24dp to R.string.mypage_logout
+                }
+                LoginState.LOGOUT ->{
+                    R.drawable.ic_login_black_24dp to R.string.mypage_login
+                }
+            }
+
+            binding.mySign.apply {
+                ivMenu.loadImage(icon)
+                tvMenu.text = resources.getString(text)
+                llMenu.setOnClickListener {
+
+                }
+            }
         })
 
     }

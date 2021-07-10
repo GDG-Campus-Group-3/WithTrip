@@ -53,8 +53,9 @@
             <include
                 android:id="@+id/my_apply_list"
                 layout="@layout/view_my_item"/>
-<!--            <include-->
-<!--                layout="@layout/view_my_item"/>-->
+            <include
+                android:id="@+id/my_sign"
+                layout="@layout/view_my_item"/>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

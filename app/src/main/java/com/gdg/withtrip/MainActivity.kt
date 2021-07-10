@@ -10,7 +10,6 @@ import androidx.lifecycle.LiveData
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.gdg.withtrip.databinding.ActivityMainBinding
-import com.gdg.withtrip.ui.trip.write.TripWriteActivity
 import com.gdg.withtrip.ui.notifications.NotificationsFragmentDirections
 import com.gdg.withtrip.ui.trip.write.TripWriteActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView

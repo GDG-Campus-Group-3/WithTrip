@@ -1,7 +1,9 @@
 package com.gdg.withtrip.di
 
+import com.gdg.withtrip.network.NetworkClient
 import com.gdg.withtrip.network.service.MapService
 import com.gdg.withtrip.network.service.NotificationService
+import com.gdg.withtrip.network.service.TripService
 import com.gdg.withtrip.network.service.impl.MapServiceImpl
 import com.gdg.withtrip.network.service.impl.NotificationServiceImpl
 import dagger.Module
@@ -22,4 +24,7 @@ object RemoteModule {
     fun provideMapService(): MapService {
         return MapServiceImpl()
     }
+
+    @Provides
+    fun provideTripService(): TripService = NetworkClient.provideService()
 }

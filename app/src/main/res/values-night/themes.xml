@@ -13,4 +13,18 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.FAB" parent="Widget.Design.FloatingActionButton">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/btn_color_main</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/btn_color_main</item>
+        <item name="colorSecondaryVariant">@color/btn_color_main</item>
+        <item name="colorOnSecondary">@color/btn_color_main</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
 </resources>

@@ -1,5 +1,6 @@
 package com.gdg.withtrip
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +10,9 @@ import androidx.lifecycle.LiveData
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.gdg.withtrip.databinding.ActivityMainBinding
+import com.gdg.withtrip.ui.trip.write.TripWriteActivity
 import com.gdg.withtrip.ui.notifications.NotificationsFragmentDirections
+import com.gdg.withtrip.ui.trip.write.TripWriteActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -48,6 +51,13 @@ class MainActivity : AppCompatActivity(), SearchToolBarHolder {
             }
         }
         initToolbar()
+        initFab()
+    }
+
+    private fun initFab() {
+        binding.fabAdd.setOnClickListener {
+            startActivity(Intent(it.context, TripWriteActivity::class.java))
+        }
     }
 
     private fun initToolbar() {

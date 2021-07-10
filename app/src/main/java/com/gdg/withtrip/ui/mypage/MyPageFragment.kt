@@ -32,10 +32,20 @@ class MyPageFragment : Fragment() {
     }
 
     private fun initView(){
-        binding.myBoardList.ivMenu.loadImage(R.drawable.ic_board_list_24dp)
-        binding.myBoardList.tvMenu.text = resources.getString(R.string.mypage_my_board)
-        binding.myBoardList.llMenu.setOnClickListener {
+        binding.myBoardList.apply {
+            ivMenu.loadImage(R.drawable.ic_board_list_24dp)
+            tvMenu.text = resources.getString(R.string.mypage_my_board)
+            llMenu.setOnClickListener {
 
+            }
+        }
+
+        binding.myApplyList.apply {
+            ivMenu.loadImage(R.drawable.ic_apply_black_24dp)
+            tvMenu.text = resources.getString(R.string.mypage_my_apply_board)
+            llMenu.setOnClickListener {
+
+            }
         }
     }
 

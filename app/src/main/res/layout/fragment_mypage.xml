@@ -51,9 +51,10 @@
                 android:id="@+id/my_board_list"
                 layout="@layout/view_my_item"/>
             <include
+                android:id="@+id/my_apply_list"
                 layout="@layout/view_my_item"/>
-            <include
-                layout="@layout/view_my_item"/>
+<!--            <include-->
+<!--                layout="@layout/view_my_item"/>-->
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

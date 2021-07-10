@@ -18,7 +18,7 @@ class MyPageViewModel : ViewModel() {
     val profile: LiveData<UserProfileModel> = _profile
 
     init {
-        _loginState.value = LoginState.LOGOUT
+        _loginState.value = LoginState.LOGIN
     }
 
 

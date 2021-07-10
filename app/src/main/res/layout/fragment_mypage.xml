@@ -1,68 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.mypage.MyPageFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/my_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="37dp"
+        android:elevation="5dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize20Percent"
+        tools:src="@tools:sample/avatars"
+        tools:visibility="gone" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/my_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:textColor="#2F80ED"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_image"
+        tools:text="@tools:sample/full_names"
+        tools:visibility="gone" />
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        tools:context=".ui.home.HomeFragment">
+        android:layout_height="0dp"
+        app:layout_goneMarginTop="228dp"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_nickname">
 
+        <include
+            android:id="@+id/my_profile"
+            layout="@layout/view_my_item" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/my_image"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:scaleType="centerCrop"
-            android:layout_marginTop="37dp"
-            android:elevation="5dp"
-            tools:src="@tools:sample/avatars"
-            app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize20Percent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+        <include
+            android:id="@+id/my_write_list"
+            layout="@layout/view_my_item" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/my_nickname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="11dp"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:textColor="#2F80ED"
-            app:layout_constraintTop_toBottomOf="@id/my_image"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="@tools:sample/full_names"/>
+        <include
+            android:id="@+id/my_apply_list"
+            layout="@layout/view_my_item" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:layout_marginTop="12dp"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/my_nickname">
+        <include
+            android:id="@+id/my_sign"
+            layout="@layout/view_my_item" />
+    </LinearLayout>
 
-            <include
-                android:id="@+id/my_profile"
-                layout="@layout/view_my_item"/>
-
-            <include
-                android:id="@+id/my_write_list"
-                layout="@layout/view_my_item"/>
-
-            <include
-                android:id="@+id/my_apply_list"
-                layout="@layout/view_my_item"/>
-
-            <include
-                android:id="@+id/my_sign"
-                layout="@layout/view_my_item"/>
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

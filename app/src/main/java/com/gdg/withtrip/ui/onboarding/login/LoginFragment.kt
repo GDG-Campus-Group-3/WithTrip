@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.gdg.withtrip.KEY_SEQ
 import com.gdg.withtrip.MainActivity
 import com.gdg.withtrip.base.ViewState
 import com.gdg.withtrip.databinding.FragLoginBinding
 import com.gdg.withtrip.ui.onboarding.OnBoardViewModel
+import com.gdg.withtrip.util.Prefs
 import com.solar.universe.extension.toast
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,6 +37,7 @@ class LoginFragment : Fragment() {
                 is ViewState.Success -> {
                     binding.loading.root.visibility = View.GONE
                     if (state.result) {
+                        Prefs.putString(KEY_SEQ, binding.etId.text.toString())
                         requireActivity().startActivity(Intent(requireActivity(), MainActivity::class.java))
                         requireActivity().finish()
                     } else {

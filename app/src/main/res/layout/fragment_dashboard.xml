@@ -6,11 +6,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:background="#20aaaaaa"-->
-<!--        tools:context=".ui.dashboard.DashboardFragment">-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#20aaaaaa"
+        tools:context=".ui.dashboard.DashboardFragment">
 
 
 <!--        <com.google.android.material.imageview.ShapeableImageView-->
@@ -56,5 +56,5 @@
 <!--                layout="@layout/view_my_item"/>-->
 <!--        </LinearLayout>-->
 
-<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

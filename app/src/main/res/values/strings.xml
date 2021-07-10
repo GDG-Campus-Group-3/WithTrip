@@ -5,6 +5,8 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_mypage">MyPage</string>
 
+    <string name="mypage_my_board">MyPage</string>
+
 
     <string name="popular">Popular</string>
 </resources>

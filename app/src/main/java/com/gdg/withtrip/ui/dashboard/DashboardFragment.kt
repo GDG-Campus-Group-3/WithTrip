@@ -33,10 +33,10 @@ class DashboardFragment : Fragment() {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        binding.myFavoriteList.root.setOnClickListener {
-            requireView().findNavController()
-                .navigate(R.id.action_mainFragment_to_likeFragment)
-        }
+//        binding.myFavoriteList.root.setOnClickListener {
+//            requireView().findNavController()
+//                .navigate(R.id.action_mainFragment_to_likeFragment)
+//        }
 
         return root
     }

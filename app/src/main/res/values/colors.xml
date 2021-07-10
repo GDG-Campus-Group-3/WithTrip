@@ -11,4 +11,6 @@
     <color name="btn_color_main">#2F80ED</color>
 
     <color name="color_stroke_input">#4F4F4F</color>
+
+    <color name="black_30">#4D000000</color>
 </resources>

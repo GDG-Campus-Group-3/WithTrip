@@ -18,8 +18,8 @@ class MyPageViewModel @Inject constructor(
     private val userRepository: UserRepository
 ) : ViewModel() {
 
-    private val _loginState : MutableLiveData<LoginState> = MutableLiveData(LoginState.LOGOUT)
-    val loginState : LiveData<LoginState> = _loginState
+    private val _loginState: MutableLiveData<LoginState> = MutableLiveData(LoginState.LOGOUT)
+    val loginState: LiveData<LoginState> = _loginState
 
     private val _profile: MutableLiveData<ViewState<UserProfileModel>> = MutableLiveData(
         /*UserProfileModel(
@@ -30,9 +30,15 @@ class MyPageViewModel @Inject constructor(
     val profile: LiveData<ViewState<UserProfileModel>> = _profile
 
     init {
-        _loginState.value = LoginState.LOGIN
+        val seq =Prefs.getString(KEY_SEQ)
+        _loginState.value = if (seq.isNullOrBlank()) {
+            LoginState.LOGOUT
+        } else {
+            LoginState.LOGIN
+        }
 
         viewModelScope.launch {
+            if(seq.isNullOrBlank()) return@launch
             runCatching {
                 userRepository.getMyUserInfo(Prefs.getString(KEY_SEQ))
             }.onSuccess {
@@ -44,7 +50,7 @@ class MyPageViewModel @Inject constructor(
     }
 }
 
-enum class LoginState{
+enum class LoginState {
     LOGIN, LOGOUT
 }
 

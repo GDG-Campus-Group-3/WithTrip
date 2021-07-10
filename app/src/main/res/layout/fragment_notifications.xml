@@ -7,18 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.notifications.NotificationsFragment">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginStart="24dp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:textSize="30sp"
-        android:text="@string/notifications"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+<!--    <TextView-->
+<!--        android:id="@+id/title"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textColor="@android:color/black"-->
+<!--        android:textSize="30sp"-->
+<!--        android:text="@string/notifications"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"/>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notification_list_view"
@@ -26,8 +26,9 @@
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:paddingStart="16dp"
+        android:paddingBottom="100dp"
         android:paddingEnd="16dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        tools:listitem="@layout/trip_card_2"/>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/notification_item"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import androidx.lifecycle.LiveData
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.gdg.withtrip.databinding.ActivityMainBinding
+import com.gdg.withtrip.ui.notifications.NotificationsFragmentDirections
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -53,6 +54,11 @@ class MainActivity : AppCompatActivity(), SearchToolBarHolder {
         binding.etSearch.addTextChangedListener { text ->
             val searchWord = text.toString()
             viewModel.updateSearchWord(searchWord)
+        }
+        binding.ivAlert.setOnClickListener {
+            findNavController(R.id.nav_host_fragment_fragment_main).navigate(
+                NotificationsFragmentDirections.actionGlobalNavigationNotifications()
+            )
         }
     }
 

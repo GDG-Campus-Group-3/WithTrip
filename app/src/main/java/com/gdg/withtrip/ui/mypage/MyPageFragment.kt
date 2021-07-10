@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.gdg.withtrip.databinding.FragmentMypageBinding
 
 class MyPageFragment : Fragment() {
@@ -12,6 +13,8 @@ class MyPageFragment : Fragment() {
     private var _binding: FragmentMypageBinding? = null
     private val binding: FragmentMypageBinding
         get() = _binding!!
+
+    private val myPageViewModel : MyPageViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

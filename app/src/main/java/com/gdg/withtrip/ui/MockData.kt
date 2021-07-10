@@ -108,6 +108,7 @@ object MockData {
 
     val mockTripDetailData: TripDetail
         get() = TripDetail(
+            seq = 0,
             image = randomCityImage(),
             name = randomCityName(),
             location = randomCityName(),

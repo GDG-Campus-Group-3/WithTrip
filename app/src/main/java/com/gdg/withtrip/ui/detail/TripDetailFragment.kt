@@ -10,7 +10,9 @@ import com.gdg.withtrip.R
 import com.gdg.withtrip.databinding.FragmentTripDetailBinding
 import com.solar.universe.binding.UniverseViewFragment
 import com.solar.universe.extension.loadUrl
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TripDetailFragment : UniverseViewFragment<FragmentTripDetailBinding>(
     R.layout.fragment_trip_detail,
     FragmentTripDetailBinding::bind

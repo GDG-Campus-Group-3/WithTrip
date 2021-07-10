@@ -26,6 +26,7 @@ class MyApplyFeedFragment :
 
     override fun onClickCard(popularCard: PopularCard) {
         val tripDetail = TripDetail(
+            seq = popularCard.id,
             image = popularCard.image,
             name = popularCard.writer,
             location = popularCard.place,

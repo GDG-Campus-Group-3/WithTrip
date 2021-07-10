@@ -5,6 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class TripDetail(
+    val seq : Int,
     val image: String,
     val name: String,
     val location: String,

@@ -12,7 +12,7 @@ class TripRepositoryImpl @Inject constructor(
     private val popularCardDao: PopularCardDao,
     private val tripService: TripService,
     private val mapper: ResponseMapper
-): TripRepository {
+) : TripRepository {
     override suspend fun insertPopularTrip(popularCard: PopularCard) {
         popularCardDao.insert(popularCard)
     }
@@ -24,4 +24,7 @@ class TripRepositoryImpl @Inject constructor(
     override suspend fun getFeedList(): List<PopularCard> {
         return mapper.boardListToTripList(tripService.getFeedList())
     }
+
+    override suspend fun getFeedDetail(seq: Int): String =
+        tripService.getFeedDetail(seq).r?.content ?: ""
 }

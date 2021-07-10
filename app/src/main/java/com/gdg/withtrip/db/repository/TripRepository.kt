@@ -7,4 +7,5 @@ interface TripRepository {
     suspend fun getLikeTripCardList(): List<PopularCard>
 
     suspend fun getFeedList(): List<PopularCard>
+    suspend fun getFeedDetail(seq: Int): String
 }

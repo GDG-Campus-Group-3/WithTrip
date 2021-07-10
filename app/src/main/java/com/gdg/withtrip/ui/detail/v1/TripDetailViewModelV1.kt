@@ -13,6 +13,7 @@ class TripDetailViewModelV1 : ViewModel() {
     init {
         _tripDetailLiveData.postValue(
             TripDetail(
+                seq = 0,
                 image = "asdf",
                 name = "name",
                 location = "location",

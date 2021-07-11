@@ -86,6 +86,9 @@ class TripWriteActivity : UniverseViewActivity<ActivityTripWriteBinding>(
                 }
             }
         }
+        binding.feedWriteBack.setOnClickListener {
+            finish()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
